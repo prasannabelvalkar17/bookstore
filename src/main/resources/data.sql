@@ -1,2 +1,2 @@
-INSERT INTO book (isbn, price, quantity) VALUES
-  ('test', 100, 5);
+INSERT INTO book (id, isbn, price, quantity) VALUES
+  (1,'test', 100, 5);

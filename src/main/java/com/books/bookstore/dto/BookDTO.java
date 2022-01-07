@@ -16,6 +16,16 @@ public class BookDTO implements Serializable{
 	
 	@JsonProperty("quantity")
 	private Integer quantity;
+	
+	private String operation;
+	
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
 
 	public String getIsbn() {
 		return isbn;

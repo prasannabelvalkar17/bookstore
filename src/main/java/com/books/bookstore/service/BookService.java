@@ -169,7 +169,7 @@ public class BookService {
 	        result.append("Total amount: "+this.totalAmount+"\n");
 	        result.append("Inventory:\n");
 	        List<Book> bookList = repo.findAll();
-	        bookList.stream().filter(item -> !item.getIsbn().equals("test")).forEach(item -> result.append(item.getIsbn()+ ":"+item.getQuantity()+"\n"));
+	        bookList.stream().forEach(item -> result.append(item.getIsbn()+ ":"+item.getQuantity()+"\n"));
 	        fw.append(result);
 	    }
 	    catch (Exception e) {

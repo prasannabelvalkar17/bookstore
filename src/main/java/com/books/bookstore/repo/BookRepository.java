@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import com.books.bookstore.entity.Book;
 
+/**
+ * @author Prasanna Belvalkar
+ *
+ */
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long>{
 

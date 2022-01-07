@@ -1,9 +1,7 @@
 package com.books.bookstore.service;
 
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -19,7 +17,10 @@ import com.books.bookstore.entity.Book;
 import com.books.bookstore.repo.BookRepository;
 import com.opencsv.CSVReader;
 
-
+/**
+ * @author Prasanna Belvalkar
+ *
+ */
 @Service
 public class BookService {
 	
@@ -96,10 +97,8 @@ public class BookService {
 		booksSold = 0;
 		totalAmount = Double.valueOf("0");
 		StringBuilder result = new StringBuilder();
-//		File csvOutputFile = new File("src/main/resources/ProcessedBatch.csv");
 		try (FileReader filereader = new FileReader("src/main/resources/batch.csv"); 
 				CSVReader csvReader = new CSVReader(filereader);
-//				PrintWriter pw = new PrintWriter(csvOutputFile)
 				FileWriter fw = new FileWriter("src/main/resources/ProcessedBatch.csv");
 				){
 	        

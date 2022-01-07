@@ -79,7 +79,7 @@ public class BookService {
 			log.info("Received {} copies of book {}.", book.getQuantity(), book.getIsbn());
 			return "Received "+book.getQuantity()+ " copies of book "+book.getIsbn()+".";
 		}catch(Exception e) {
-			e.printStackTrace();
+			log.error("Error occured while receiving book {}", e.getMessage());
 			return "Error occured while receiving book" + e.getMessage()+".";
 		}
 	}
@@ -166,6 +166,7 @@ public class BookService {
 	        fw.append(result);
 	    }
 	    catch (Exception e) {
+	    	log.error("Error occurred while executing batch : {}", e.getMessage());
 	        e.printStackTrace();
 	    }
 		return result.toString();

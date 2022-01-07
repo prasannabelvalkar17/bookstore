@@ -40,7 +40,6 @@ public class BookController {
 	
 	@PostMapping("/receive")
 	public String receiveNewBook(@RequestBody BookDTO bookDto) {
-		System.out.println("isbn: "+bookDto.getIsbn()+" Price: "+bookDto.getPrice()+ " Quantity: "+bookDto.getQuantity());
 		return bookService.receiveNewBook(bookDto);
 	}
 	

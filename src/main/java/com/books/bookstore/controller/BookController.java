@@ -23,17 +23,17 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 	
-	@GetMapping("query/{isbn}")
+	@GetMapping("/query/{isbn}")
 	public String getData(@PathVariable String isbn) {
 		return bookService.retriveBooks(isbn);
 	}
 	
-	@GetMapping("buy/{isbn}/{quantity}")
+	@GetMapping("/buy/{isbn}/{quantity}")
 	public String buy(@PathVariable String isbn, @PathVariable Integer quantity) {
 		return bookService.buy(isbn, quantity);
 	}
 	
-	@GetMapping("return/{isbn}/{quantity}")
+	@GetMapping("/return/{isbn}/{quantity}")
 	public String returnBook(@PathVariable String isbn, @PathVariable Integer quantity) {
 		return bookService.returnBook(isbn, quantity);
 	}

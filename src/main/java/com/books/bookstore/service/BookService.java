@@ -73,9 +73,16 @@ public class BookService {
 	
 	public String receiveNewBook(BookDTO bookDto) {
 		try {
-			Book book = new Book();
-			BeanUtils.copyProperties(bookDto, book);
-			repo.save(book);
+			Book book = repo.retriveBooks(bookDto.getIsbn());
+			if(book != null) {
+				book.setPrice(bookDto.getPrice());
+				book.setQuantity(book.getQuantity() + bookDto.getQuantity());
+			}else {
+				book = new Book();
+				BeanUtils.copyProperties(bookDto, book);
+				repo.save(book);
+			}
+			
 			log.info("Received {} copies of book {}.", book.getQuantity(), book.getIsbn());
 			return "Received "+book.getQuantity()+ " copies of book "+book.getIsbn()+".";
 		}catch(Exception e) {

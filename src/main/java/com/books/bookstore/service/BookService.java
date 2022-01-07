@@ -71,6 +71,7 @@ public class BookService {
 		return "Refund "+quantity+ " copies of "+book.getIsbn()+ " at "+book.getPrice()+ " each. Total: -"+ String.format("%.2f", quantity*book.getPrice())+".";
 	}
 	
+	@Transactional
 	public String receiveNewBook(BookDTO bookDto) {
 		try {
 			Book book = repo.retriveBooks(bookDto.getIsbn());
